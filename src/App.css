@@ -1,0 +1,32 @@
+#contenedor {
+  margin-top: 15%;
+  margin-left: 30%;
+}
+
+#signo {
+  margin-left: 5px;
+}
+
+Button {
+  width: 150px;
+  height: 100px;
+}
+#display {
+  text-align: right;
+}
+#punto {
+  width: 15px;
+}
+
+#cls {
+  width: 125px;
+}
+img {
+  border-radius: 50%;
+}
+Card.Body {
+  width: 50px;
+}
+#dis {
+  width: 57%;
+}
