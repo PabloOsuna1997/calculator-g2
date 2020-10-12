@@ -8,6 +8,7 @@ import Navbar from 'react-bootstrap/Navbar'
 import Card from 'react-bootstrap/Card'
 
 function App() {
+    const [operation, setOperation] = useState('')
     const [res, setRes] = useState(0)        //acabo de sacar resultado
     const [number1, setNumber1] = useState('')
     const [number2, setNumber2] = useState('')
@@ -39,6 +40,7 @@ function App() {
 
 
     function Number(num) {
+        setOperation(operation + num)
         if (displaySign != '') {
             setNumber2(number2 + num)
             setDisplay(display + num)
@@ -72,6 +74,7 @@ function App() {
                 <Row id="dis">
                     <Col>
                         <Card>
+                            <Card.Body><h3 id="operation">{operation}</h3></Card.Body>
                             <Card.Body><h2>{display}</h2></Card.Body>
                         </Card>
                     </Col>
@@ -82,6 +85,7 @@ function App() {
                         <Button onClick={() => Number('8')}>8</Button>
                         <Button onClick={() => Number('9')}>9</Button>
                         <Button id="signo" variant="secondary" onClick={() => {
+                            setOperation(operation + '+')
                             if (number1 != '' && number2 != '') {
                                 setNumber1((parseFloat(number1) + parseFloat(number2)) + '')
                                 setNumber2('')
@@ -101,6 +105,7 @@ function App() {
                         <Button onClick={() => Number('5')}>5</Button>
                         <Button onClick={() => Number('6')}>6</Button>
                         <Button id="signo" variant="secondary" onClick={() => {
+                            setOperation(operation + '-')
                             if (number1 != '' && number2 != '') {
                                 setNumber1((parseFloat(number1) - parseFloat(number2)) + '')
                                 setNumber2('')
@@ -120,6 +125,7 @@ function App() {
                         <Button onClick={() => Number('2')}>2</Button>
                         <Button onClick={() => Number('3')}>3</Button>
                         <Button id="signo" variant="secondary" onClick={() => {
+                            setOperation(operation + '*')
                             if (number1 != '' && number2 != '') {
                                 setNumber1((parseFloat(number1) * parseFloat(number2)) + '')
                                 setNumber2('')
@@ -140,6 +146,7 @@ function App() {
                             setNumber1('')
                             setNumber2('')
                             setDisplaySign('')
+                            setOperation('')
                         }}>CLS</Button>
                         <Button variant="secondary" onClick={() => Number('.')} id="punto">.</Button>
                         <Button onClick={() => Number('0')}>0</Button>
@@ -148,6 +155,7 @@ function App() {
                             Result()
                         }}>=</Button>
                         <Button id="signo" variant="secondary" onClick={() => {
+                            setOperation(operation + '/')
                             if (number1 != '' && number2 != '') {
                                 setNumber1((parseFloat(number1) / parseFloat(number2)) + '')
                                 setNumber2('')
